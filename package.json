@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "demo": "node test-demo.js",
+    "test": "node test-demo.js"
   },
   "keywords": [
     "google-meet",
