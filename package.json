@@ -1,0 +1,29 @@
+{
+  "name": "google-meet-tone-monitor",
+  "version": "1.0.0",
+  "description": "Monitor tone and detect rule violations in Google Meet conversations",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "google-meet",
+    "tone-monitor",
+    "sentiment-analysis",
+    "meeting-moderation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^22.0.0",
+    "puppeteer-stream": "^3.0.5",
+    "node-notifier": "^10.0.1",
+    "sentiment": "^5.0.2",
+    "natural": "^6.10.0",
+    "bad-words": "^3.0.4",
+    "dotenv": "^16.4.5",
+    "chalk": "^5.3.0"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "rulesOfEngagement": {
+    "title": "Meeting Rules of Engagement",
+    "rules": [
+      "Be respectful and professional",
+      "No personal attacks or insults",
+      "No condescending or dismissive language",
+      "Listen actively without interrupting",
+      "Focus on ideas, not individuals",
+      "Keep discussions constructive"
+    ]
+  },
+  "toxicPatterns": [
+    "stupid",
+    "idiot",
+    "moron",
+    "dumb",
+    "shut up",
+    "incompetent",
+    "useless",
+    "pathetic",
+    "waste of time",
+    "you always",
+    "you never"
+  ],
+  "condescendingPatterns": [
+    "obviously",
+    "clearly you don't understand",
+    "as I already said",
+    "did you even",
+    "let me explain this simply",
+    "that's not how it works",
+    "you should know",
+    "everyone knows",
+    "are you serious",
+    "seriously?"
+  ],
+  "dismissivePatterns": [
+    "whatever",
+    "I don't care",
+    "that doesn't matter",
+    "not important",
+    "forget it",
+    "never mind",
+    "you wouldn't understand"
+  ],
+  "thresholds": {
+    "sentimentScore": -2,
+    "toxicityCount": 1,
+    "condescendingCount": 2,
+    "dismissiveCount": 2
+  },
+  "warnings": {
+    "toxic": "⚠️ WARNING: Toxic language detected. Please maintain respectful communication.",
+    "condescending": "⚠️ WARNING: Condescending tone detected. Please be mindful of your language.",
+    "dismissive": "⚠️ WARNING: Dismissive behavior detected. Please engage constructively.",
+    "negative": "⚠️ WARNING: Negative sentiment detected. Let's keep the discussion positive.",
+    "general": "⚠️ WARNING: Rules of engagement may be violated. Please review meeting guidelines."
+  }
+}
