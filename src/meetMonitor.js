@@ -26,6 +26,14 @@ class MeetMonitor {
   }
 
   /**
+   * Helper function to wait/sleep for specified milliseconds
+   * Replaces deprecated page.waitForTimeout()
+   */
+  async sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  /**
    * Initialize browser and page
    */
   async initialize() {
@@ -84,7 +92,7 @@ class MeetMonitor {
       });
 
       // Wait a bit for page to load
-      await this.page.waitForTimeout(3000);
+      await this.sleep(3000);
 
       // Try to turn off camera and microphone before joining
       try {
@@ -92,7 +100,7 @@ class MeetMonitor {
         const cameraButton = await this.page.$('[data-is-muted="false"][aria-label*="camera"]');
         if (cameraButton) {
           await cameraButton.click();
-          await this.page.waitForTimeout(500);
+          await this.sleep(500);
         }
       } catch (e) {
         this.notifier.warning('Could not toggle camera');
@@ -103,7 +111,7 @@ class MeetMonitor {
         const micButton = await this.page.$('[data-is-muted="false"][aria-label*="microphone"]');
         if (micButton) {
           await micButton.click();
-          await this.page.waitForTimeout(500);
+          await this.sleep(500);
         }
       } catch (e) {
         this.notifier.warning('Could not toggle microphone');
@@ -137,7 +145,7 @@ class MeetMonitor {
       }
 
       // Wait for meeting to load
-      await this.page.waitForTimeout(5000);
+      await this.sleep(5000);
 
       // Enable captions for monitoring
       await this.enableCaptions();
@@ -172,7 +180,7 @@ class MeetMonitor {
             const ariaPressed = await button.evaluate(el => el.getAttribute('aria-pressed'));
             if (ariaPressed !== 'true') {
               await button.click();
-              await this.page.waitForTimeout(1000);
+              await this.sleep(1000);
               this.notifier.success('Captions enabled');
               return true;
             }
@@ -207,10 +215,10 @@ class MeetMonitor {
     while (this.isMonitoring) {
       try {
         await this.checkCaptions();
-        await this.page.waitForTimeout(this.checkInterval);
+        await this.sleep(this.checkInterval);
       } catch (error) {
         this.notifier.error(`Monitoring error: ${error.message}`);
-        await this.page.waitForTimeout(this.checkInterval);
+        await this.sleep(this.checkInterval);
       }
     }
   }
